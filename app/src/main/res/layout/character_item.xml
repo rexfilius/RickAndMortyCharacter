@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="8dp">
 
     <ImageView
-        android:id="@+id/mainItemImage"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:id="@+id/characterItemImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
@@ -18,49 +19,53 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/mainItemName"
+        android:id="@+id/characterItemName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/roboto_slab"
         android:text="@string/item_name"
-        app:layout_constraintBottom_toTopOf="@+id/mainItemStatus"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/characterItemStatus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/mainItemImage"
+        app:layout_constraintStart_toEndOf="@+id/characterItemImage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/mainItemStatus"
+        android:id="@+id/characterItemStatus"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/roboto_slab"
         android:text="@string/item_status"
-        app:layout_constraintBottom_toTopOf="@+id/mainItemSpecies"
+        app:layout_constraintBottom_toTopOf="@+id/characterItemSpecies"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/mainItemImage"
-        app:layout_constraintTop_toBottomOf="@+id/mainItemName" />
+        app:layout_constraintStart_toEndOf="@+id/characterItemImage"
+        app:layout_constraintTop_toBottomOf="@+id/characterItemName" />
 
     <TextView
-        android:id="@+id/mainItemSpecies"
+        android:id="@+id/characterItemSpecies"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/roboto_slab"
         android:text="@string/item_species"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/mainItemImage"
-        app:layout_constraintTop_toBottomOf="@+id/mainItemStatus" />
+        app:layout_constraintStart_toEndOf="@+id/characterItemImage"
+        app:layout_constraintTop_toBottomOf="@+id/characterItemStatus" />
 
     <View
-        android:id="@+id/mainItemDivider"
+        android:id="@+id/characterItemDivider"
         android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
+        android:layout_height="2dp"
+        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

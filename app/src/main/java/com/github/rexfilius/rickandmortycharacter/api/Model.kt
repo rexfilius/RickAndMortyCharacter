@@ -16,4 +16,4 @@ data class Results(
     val characterImage: String,
 )
 
-data class CharacterResponse(val characters: List<Results>)
+data class CharacterResponse(val results: List<Results>)

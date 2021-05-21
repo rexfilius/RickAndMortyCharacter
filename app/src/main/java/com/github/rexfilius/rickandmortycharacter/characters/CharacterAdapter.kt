@@ -1,18 +1,18 @@
-package com.github.rexfilius.rickandmortycharacter
+package com.github.rexfilius.rickandmortycharacter.characters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.github.rexfilius.rickandmortycharacter.api.Results
-import com.github.rexfilius.rickandmortycharacter.databinding.MainItemBinding
+import com.github.rexfilius.rickandmortycharacter.databinding.CharacterItemBinding
 
-class MainAdapter(private val characterList: List<Results>) :
-    RecyclerView.Adapter<MainAdapter.CharacterViewHolder>() {
+class CharacterAdapter(private val characterList: List<Results>) :
+    RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         return CharacterViewHolder(
-            MainItemBinding.inflate(
+            CharacterItemBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
@@ -23,14 +23,14 @@ class MainAdapter(private val characterList: List<Results>) :
 
     override fun getItemCount(): Int = characterList.size
 
-    inner class CharacterViewHolder(private val binding: MainItemBinding) :
+    inner class CharacterViewHolder(private val binding: CharacterItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(character: Results) {
-            binding.mainItemImage.load(character.characterImage)
-            binding.mainItemName.text = character.characterName
-            binding.mainItemStatus.text = character.characterStatus
-            binding.mainItemSpecies.text = character.characterSpecies
+            binding.characterItemImage.load(character.characterImage)
+            binding.characterItemName.text = character.characterName
+            binding.characterItemStatus.text = character.characterStatus
+            binding.characterItemSpecies.text = character.characterSpecies
         }
 
     }

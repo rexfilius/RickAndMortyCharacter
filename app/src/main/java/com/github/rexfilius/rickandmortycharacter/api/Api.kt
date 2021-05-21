@@ -6,12 +6,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-interface ApiService {
-
-    @GET("api/character")
-    suspend fun getCharacters(): CharacterResponse
-}
-
 const val BASE_URL = "https://rickandmortyapi.com/"
 val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
@@ -24,6 +18,12 @@ object CharacterApi {
             .build()
             .create(ApiService::class.java)
     }
+}
+
+interface ApiService {
+
+    @GET("api/character")
+    suspend fun getCharacters(): CharacterResponse
 }
 
 class CharacterRepository(private val apiService: ApiService) {

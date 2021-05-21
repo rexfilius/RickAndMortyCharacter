@@ -1,4 +1,4 @@
-package com.github.rexfilius.rickandmortycharacter
+package com.github.rexfilius.rickandmortycharacter.characters
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,34 +7,36 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.rexfilius.rickandmortycharacter.api.Results
 import com.github.rexfilius.rickandmortycharacter.api.CharacterApi
 import com.github.rexfilius.rickandmortycharacter.api.CharacterRepository
-import com.github.rexfilius.rickandmortycharacter.databinding.MainBinding
+import com.github.rexfilius.rickandmortycharacter.databinding.CharacterBinding
 
-class MainActivity : AppCompatActivity() {
+class CharacterActivity : AppCompatActivity() {
 
-    lateinit var binding: MainBinding
+    lateinit var binding: CharacterBinding
     private val character = mutableListOf<Results>()
 
-    private val viewModel: MainViewModel by lazy {
+    private val viewModel: CharacterViewModel by lazy {
         ViewModelProvider(
-            this, MainViewModelFactory(
+            this, CharacterViewModelFactory(
                 CharacterRepository(
                     CharacterApi.apiService
                 )
             )
-        ).get(MainViewModel::class.java)
+        ).get(CharacterViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = MainBinding.inflate(layoutInflater)
+        binding = CharacterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val characterAdapter = CharacterAdapter(character)
+        binding.characterRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.characterRecyclerView.adapter = characterAdapter
 
         viewModel.characterLiveData.observe(this, {
             character.addAll(it)
+            characterAdapter.notifyDataSetChanged()
         })
-
-        val mainAdapter = MainAdapter(character)
-        binding.mainRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.mainRecyclerView.adapter = mainAdapter
     }
+
 }
