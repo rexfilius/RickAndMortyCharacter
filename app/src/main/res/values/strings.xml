@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RickAndMortyCharacter</string>
+    <string name="item_name">Name, %1$s</string>
+    <string name="item_status">Status, %1$s</string>
+    <string name="item_species">Species, %1$s</string>
+    <string name="item_image_desc">Image of Rick and Morty character</string>
+</resources>
