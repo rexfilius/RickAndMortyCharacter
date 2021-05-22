@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">RickAndMortyCharacter</string>
-    <string name="item_name">Name</string>
-    <string name="item_status">Status</string>
-    <string name="item_species">Species</string>
+    <string name="item_name">Name:\n%s</string>
+    <string name="item_status">Status:\n%s</string>
+    <string name="item_species">Species:\n%s</string>
     <string name="item_image_desc">Image of Rick and Morty character</string>
 </resources>

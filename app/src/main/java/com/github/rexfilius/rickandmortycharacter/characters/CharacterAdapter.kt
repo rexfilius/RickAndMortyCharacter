@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.github.rexfilius.rickandmortycharacter.R
 import com.github.rexfilius.rickandmortycharacter.api.Results
 import com.github.rexfilius.rickandmortycharacter.databinding.CharacterItemBinding
 
@@ -28,9 +29,15 @@ class CharacterAdapter(private val characterList: List<Results>) :
 
         fun bind(character: Results) {
             binding.characterItemImage.load(character.characterImage)
-            binding.characterItemName.text = character.characterName
-            binding.characterItemStatus.text = character.characterStatus
-            binding.characterItemSpecies.text = character.characterSpecies
+
+            binding.characterItemName.text =
+                binding.root.context.getString(R.string.item_name, character.characterName)
+
+            binding.characterItemStatus.text =
+                binding.root.context.getString(R.string.item_status, character.characterStatus)
+
+            binding.characterItemSpecies.text =
+                binding.root.context.getString(R.string.item_species, character.characterSpecies)
         }
 
     }

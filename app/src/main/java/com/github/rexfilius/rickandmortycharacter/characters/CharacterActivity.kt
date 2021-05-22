@@ -2,6 +2,7 @@ package com.github.rexfilius.rickandmortycharacter.characters
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.rexfilius.rickandmortycharacter.api.Results
@@ -36,6 +37,7 @@ class CharacterActivity : AppCompatActivity() {
         viewModel.characterLiveData.observe(this, {
             character.addAll(it)
             characterAdapter.notifyDataSetChanged()
+            binding.characterProgressBar.visibility = View.GONE
         })
     }
 
